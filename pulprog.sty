@@ -1,7 +1,22 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pulprog}[2020/01/21]
 
-\usepackage{tikz}
+\RequirePackage{expl3}
+\ProvidesExplPackage{pulprog}{2020/01/21}{0.1}{Wrapper around tikzpicture for drawing pulse programmes.}
+
+\RequirePackage{tikz}
+
+% FWIW, the syntax file doesn't work perfectly on LaTeX 3 macros (although the additions in
+% .vim/after/syntax/tex.vim do help a little).
+% This is something I either have to just put up with, or learn how to write a syntax file myself...
+\cs_new:Npn \SayHello #1 {
+    \prg_replicate:nn {#1} {Hello~World!~ }
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% LaTeX2e code below %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Overhang at the start and at the end.
 \def\ppoverhang{0.3cm}
@@ -46,7 +61,7 @@
 }
 
 \newcommand{\ppdrawchannelline}[1]{
-    \draw[thick] (-\ppoverhang, 0) node[left, text depth=0.4ex] {#1}
+    \draw[thick] (-\ppoverhang, 0) node[left, text~depth=0.4ex] {#1}
         -- (\ppx + \ppoverhang, 0) ;
 }
 

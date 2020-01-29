@@ -5,6 +5,8 @@
 
 \begin{document}
 
+\SayHello{100}
+
 2D J spectrum:
 
 \begin{tikzpicture}
@@ -28,10 +30,10 @@
     \ppdrawchannelline{\ce{^1H}}
 \end{tikzpicture}
 
-Carbon 1D spectrum with Ernst angle excitation:
+Carbon 1D spectrum with 30 degree flip angle:
 
 \begin{tikzpicture}
-    \ppdrawfullpulse{$\beta$}
+    \ppdrawfullpulse{$\phantom{30^\circ = \;}\beta = 30^\circ$} % obviously, nice to have code that allows for alignment.
     \ppdrawacquisition
     \ppdrawchannelline{\ce{^{13}C}}
 \end{tikzpicture}
